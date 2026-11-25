@@ -1,0 +1,145 @@
+<meta charset="utf-8">
+<title>Bitta savol</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--card:rgba(255,255,255,.93);--fg:#2b1850;--accent:#d92f6a;--on:#fff;--soft:#e9dff5;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:#1b1552;color:var(--fg);font-family:'Nunito',system-ui,sans-serif;display:grid;place-items:center;padding:16px;overflow:hidden}
+#scene{position:fixed;inset:0;width:100%;height:100%}
+.st{animation:blink 3s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+main{position:relative;box-shadow:0 20px 60px rgba(20,8,50,.45);background:var(--card);border-radius:24px;padding:40px 24px;width:100%;max-width:420px;text-align:center}
+.heart{font-size:72px;line-height:1;color:var(--accent);animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.12)}}
+h1{min-height:2.5em;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:20px 0 8px;text-wrap:balance}
+p{margin:0;min-height:1.5em;font-size:1rem}
+.btns{display:flex;gap:16px;justify-content:center;align-items:center;margin-top:28px;min-height:64px}
+button{font:inherit;font-weight:800;font-size:1.1rem;border:0;border-radius:999px;padding:14px 30px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+#ha{background:var(--accent);color:var(--on);transition:transform .2s}
+#yoq{background:var(--soft);color:var(--fg);touch-action:none}
+#yoq.run{position:fixed;transition:left .18s,top .18s;z-index:2}
+#after{flex-direction:column;margin-top:20px}
+#rasm{background:var(--accent);color:var(--on)}
+.fall{position:fixed;top:-40px;color:var(--accent);pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.heart,.fall,.st{animation:none}.fall{display:none}}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#glow{position:fixed;inset:0;opacity:0;transition:opacity 1.5s;background:radial-gradient(circle at 20% 20%,#ff4f9acc,transparent 55%),radial-gradient(circle at 85% 35%,#43d9ffaa,transparent 50%),radial-gradient(circle at 50% 95%,#ffc94dcc,transparent 55%)}
+.yes #glow{opacity:1;animation:hue 8s linear infinite}
+@keyframes hue{50%{filter:hue-rotate(70deg)}}
+main{z-index:2;border:2px solid #fff;transition:box-shadow 1s}
+.yes main{animation:pop .8s cubic-bezier(.2,1.6,.4,1);box-shadow:0 0 30px #ff7ab8,0 0 90px #ff4f9a}
+@keyframes pop{from{transform:scale(.6) rotate(-4deg)}}
+.heart{filter:drop-shadow(0 0 14px #ff6ca6)}
+.yes .heart{font-size:100px}
+h1{color:#b0278f;animation:shine 4s ease-in-out infinite}
+@keyframes shine{50%{color:#6b34d6}}
+#ha,#rasm{box-shadow:0 6px 24px #d92f6a88}
+.shoot{position:fixed;width:110px;height:2px;background:linear-gradient(90deg,transparent,#fff);transform:rotate(25deg);opacity:0;animation:shoot 6s ease-in infinite;pointer-events:none}
+@keyframes shoot{0%{opacity:0;translate:0 0}4%{opacity:1}16%,100%{opacity:0;translate:260px 120px}}
+@media (prefers-reduced-motion:reduce){.shoot,#fx{display:none}.yes #glow,.yes main,h1{animation:none}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;800&display=swap">
+<svg id="scene" viewBox="0 0 400 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1552"/><stop offset=".55" stop-color="#8a3f8f"/><stop offset=".82" stop-color="#ff8a7a"/><stop offset="1" stop-color="#ffd08a"/></linearGradient></defs>
+<rect width="400" height="800" fill="url(#sky)"/><circle cx="121" cy="303" r="1.8" fill="#fff" class="st" style="animation-delay:-0.4s"/><circle cx="309" cy="242" r="1.8" fill="#fff" class="st" style="animation-delay:-1.7s"/><circle cx="310" cy="6" r="1.2" fill="#fff" class="st" style="animation-delay:-0.8s"/><circle cx="119" cy="98" r="1.8" fill="#fff" class="st" style="animation-delay:-1.4s"/><circle cx="281" cy="243" r="1.2" fill="#fff" class="st" style="animation-delay:-1.9s"/><circle cx="77" cy="118" r="1.8" fill="#fff" class="st" style="animation-delay:-0.5s"/><circle cx="267" cy="199" r="1.8" fill="#fff" class="st" style="animation-delay:-0.0s"/><circle cx="397" cy="32" r="0.8" fill="#fff" class="st" style="animation-delay:-2.3s"/><circle cx="302" cy="21" r="1.2" fill="#fff" class="st" style="animation-delay:-2.3s"/><circle cx="137" cy="242" r="1.8" fill="#fff" class="st" style="animation-delay:-2.2s"/><circle cx="198" cy="218" r="1.2" fill="#fff" class="st" style="animation-delay:-2.2s"/><circle cx="295" cy="227" r="0.8" fill="#fff" class="st" style="animation-delay:-2.6s"/><circle cx="49" cy="18" r="0.8" fill="#fff" class="st" style="animation-delay:-1.5s"/><circle cx="132" cy="223" r="1.8" fill="#fff" class="st" style="animation-delay:-2.6s"/><circle cx="215" cy="259" r="1.2" fill="#fff" class="st" style="animation-delay:-1.7s"/><circle cx="273" cy="299" r="1.2" fill="#fff" class="st" style="animation-delay:-1.8s"/><circle cx="172" cy="14" r="1.2" fill="#fff" class="st" style="animation-delay:-3.0s"/><circle cx="343" cy="83" r="1.8" fill="#fff" class="st" style="animation-delay:-2.6s"/><circle cx="277" cy="292" r="1.8" fill="#fff" class="st" style="animation-delay:-0.3s"/><circle cx="335" cy="108" r="1.8" fill="#fff" class="st" style="animation-delay:-2.5s"/><circle cx="293" cy="136" r="1.2" fill="#fff" class="st" style="animation-delay:-0.4s"/><circle cx="246" cy="327" r="1.2" fill="#fff" class="st" style="animation-delay:-0.3s"/><circle cx="34" cy="210" r="0.8" fill="#fff" class="st" style="animation-delay:-0.1s"/><circle cx="218" cy="212" r="0.8" fill="#fff" class="st" style="animation-delay:-0.1s"/><circle cx="314" cy="23" r="1.2" fill="#fff" class="st" style="animation-delay:-2.2s"/><circle cx="169" cy="282" r="1.2" fill="#fff" class="st" style="animation-delay:-1.5s"/><circle cx="18" cy="158" r="0.8" fill="#fff" class="st" style="animation-delay:-0.2s"/><circle cx="307" cy="274" r="0.8" fill="#fff" class="st" style="animation-delay:-2.8s"/><circle cx="208" cy="149" r="1.8" fill="#fff" class="st" style="animation-delay:-0.8s"/><circle cx="353" cy="21" r="1.2" fill="#fff" class="st" style="animation-delay:-0.9s"/><circle cx="70" cy="193" r="1.2" fill="#fff" class="st" style="animation-delay:-1.4s"/><circle cx="266" cy="197" r="1.8" fill="#fff" class="st" style="animation-delay:-2.6s"/><circle cx="348" cy="286" r="0.8" fill="#fff" class="st" style="animation-delay:-1.9s"/><circle cx="259" cy="138" r="1.2" fill="#fff" class="st" style="animation-delay:-1.9s"/><circle cx="366" cy="121" r="1.2" fill="#fff" class="st" style="animation-delay:-1.3s"/><circle cx="132" cy="266" r="1.2" fill="#fff" class="st" style="animation-delay:-1.6s"/><circle cx="5" cy="212" r="1.8" fill="#fff" class="st" style="animation-delay:-0.9s"/><circle cx="192" cy="315" r="1.8" fill="#fff" class="st" style="animation-delay:-1.9s"/><circle cx="30" cy="324" r="1.8" fill="#fff" class="st" style="animation-delay:-1.0s"/><circle cx="180" cy="180" r="1.8" fill="#fff" class="st" style="animation-delay:-2.1s"/><circle cx="377" cy="250" r="0.8" fill="#fff" class="st" style="animation-delay:-1.8s"/><circle cx="346" cy="10" r="1.2" fill="#fff" class="st" style="animation-delay:-0.8s"/><circle cx="233" cy="152" r="1.8" fill="#fff" class="st" style="animation-delay:-1.8s"/><circle cx="90" cy="186" r="0.8" fill="#fff" class="st" style="animation-delay:-0.9s"/><circle cx="189" cy="304" r="1.2" fill="#fff" class="st" style="animation-delay:-0.9s"/><circle cx="193" cy="53" r="0.8" fill="#fff" class="st" style="animation-delay:-2.9s"/><circle cx="350" cy="67" r="1.2" fill="#fff" class="st" style="animation-delay:-1.5s"/><circle cx="334" cy="137" r="0.8" fill="#fff" class="st" style="animation-delay:-1.0s"/><circle cx="347" cy="222" r="1.8" fill="#fff" class="st" style="animation-delay:-2.1s"/><circle cx="52" cy="307" r="1.2" fill="#fff" class="st" style="animation-delay:-2.8s"/><circle cx="345" cy="114" r="1.2" fill="#fff" class="st" style="animation-delay:-2.4s"/><circle cx="86" cy="40" r="1.2" fill="#fff" class="st" style="animation-delay:-2.2s"/><circle cx="111" cy="291" r="1.2" fill="#fff" class="st" style="animation-delay:-0.8s"/><circle cx="61" cy="17" r="1.8" fill="#fff" class="st" style="animation-delay:-2.9s"/><circle cx="161" cy="294" r="0.8" fill="#fff" class="st" style="animation-delay:-2.6s"/><circle cx="174" cy="328" r="0.8" fill="#fff" class="st" style="animation-delay:-2.4s"/><circle cx="176" cy="301" r="0.8" fill="#fff" class="st" style="animation-delay:-1.3s"/><circle cx="265" cy="138" r="1.2" fill="#fff" class="st" style="animation-delay:-1.0s"/><circle cx="213" cy="148" r="1.2" fill="#fff" class="st" style="animation-delay:-1.7s"/><circle cx="18" cy="211" r="0.8" fill="#fff" class="st" style="animation-delay:-0.6s"/>
+<circle cx="320" cy="90" r="34" fill="#fff3d0"/><circle cx="306" cy="80" r="30" fill="#2a1d62"/>
+<circle cx="200" cy="700" r="70" fill="#ffe3a3"/>
+<path d="M0 690Q90 620 190 690T400 670V800H0Z" fill="#6b2f73"/>
+<path d="M0 740Q120 680 240 740T400 725V800H0Z" fill="#35194f"/>
+</svg>
+<div id="glow" aria-hidden="true"></div>
+<i class="shoot" style="top:8%;left:5%"></i><i class="shoot" style="top:18%;left:45%;animation-delay:3s"></i>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <div class="heart" aria-hidden="true">♥</div>
+  <h1 id="title">Mubina, menga rasmingni tashlaysanmi? 🌸</h1>
+  <p id="msg" aria-live="polite">Malikam, bittagina soʻrayapman 🙈</p>
+  <div class="btns" id="after" hidden>
+    <button id="rasm" type="button">Rasm yuborish 📷</button>
+  </div>
+  <div class="btns" id="btns">
+    <button id="ha" type="button">Ha</button>
+    <button id="yoq" type="button">Yoʻq</button>
+  </div>
+</main>
+<script>
+const ha=document.getElementById('ha'),yoq=document.getElementById('yoq'),msg=document.getElementById('msg');
+const gaplar=["Bittagina rasm, iltimos","Seni bir koʻrgim keldi","Yoʻq dema-da, malikam","Tabassumingni sogʻindim","Mubinaxon, iltimos-iltimos","Bitta rasming kunimni yoritadi","Uyalma, sen shundoq ham chiroylisan","Jon Mubina, bittagina"];
+const stikerlar=["🙈","🥺","☺️","😢","🙈","🥹","😊","😔"];
+const katta=["Mubina, iltimos 🥺","Malikam, bittagina 👑","Sharq goʻzali, rasm tashla 🌸","Uyalyapman, lekin soʻrayman 🙈","Xafa boʻlib qoldim-a 😢","Mubinajon, iltimos 🤍","Goʻzalim, yoʻq dema 🌷","Oppogʻim, bitta rasm ✨"];
+let n=0;
+function qoch(e){
+  if(e) e.preventDefault();
+  if(!yoq.classList.contains('run')){
+    const r=yoq.getBoundingClientRect();
+    document.body.appendChild(yoq);
+    yoq.style.left=r.left+'px';yoq.style.top=r.top+'px';
+    yoq.classList.add('run');yoq.offsetWidth;
+  }
+  const w=yoq.offsetWidth,h=yoq.offsetHeight,a=ha.getBoundingClientRect();
+  let x,y,i=0;
+  do{
+    x=16+Math.random()*Math.max(0,innerWidth-w-32);
+    y=60+Math.random()*Math.max(0,innerHeight-h-120);
+  }while(++i<40 && x<a.right+30 && x+w>a.left-30 && y<a.bottom+30 && y+h>a.top-30);
+  yoq.style.left=x+'px';yoq.style.top=y+'px';
+  msg.textContent=gaplar[n%gaplar.length];
+  document.querySelector('.heart').textContent=stikerlar[n%stikerlar.length];const k=katta[n%katta.length],sar=document.getElementById('title');
+  sar.textContent=k;sar.animate([{transform:'scale(.6) rotate(-6deg)'},{transform:'scale(1.12) rotate(3deg)'},{transform:'none'}],{duration:400});
+  n++;
+  ha.style.transform='scale('+Math.min(1+n*.05,1.4)+')';
+}
+['pointerenter','pointerdown','click'].forEach(t=>yoq.addEventListener(t,qoch));
+ha.addEventListener('click',()=>{
+  document.querySelector('.heart').textContent='🥹';
+  yoq.remove();document.getElementById('btns').remove();
+  document.getElementById('after').hidden=false;
+  document.getElementById('title').textContent="Rahmat, malikam! 🤍";
+  msg.textContent="Mubina, rasmingni kutyapman ☺️";
+  for(let i=0;i<40;i++){
+    const s=document.createElement('span');
+    s.className='fall';s.textContent='♥';s.setAttribute('aria-hidden','true');
+    s.style.left=Math.random()*95+'vw';s.style.fontSize=14+Math.random()*24+'px';
+    s.style.animationDuration=2+Math.random()*3+'s';s.style.animationDelay=Math.random()+'s';
+    s.addEventListener('animationend',()=>s.remove());
+    document.body.appendChild(s);
+  }
+});
+const tugadi=t=>{msg.textContent=t;};
+document.getElementById('rasm').addEventListener('click',()=>tugadi("Rasmingni Telegramda menga oʻzing yubor 😊"));
+
+const fx=document.getElementById('fx'),c=fx.getContext('2d'),ranglar=['#ff4f9a','#ffd34d','#5ce1ff','#b78bff','#7dffb0','#fff'];
+let zarra=[];
+function olch(){fx.width=innerWidth;fx.height=innerHeight;}
+addEventListener('resize',olch);olch();
+function salyut(x,y){
+  const r=ranglar[Math.random()*ranglar.length|0];
+  for(let i=0;i<60;i++){const a=i/60*6.283,v=2+Math.random()*3.5;zarra.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:.05,t:1,d:.012,r});}
+}
+function yurak(){zarra.push({x:Math.random()*fx.width,y:fx.height+20,vx:Math.random()-.5,vy:-1.5-Math.random()*2,g:0,t:1,d:.004,r:ranglar[Math.random()*4|0],h:14+Math.random()*22});}
+function chiz(){
+  c.clearRect(0,0,fx.width,fx.height);
+  zarra=zarra.filter(z=>z.t>0);
+  for(const z of zarra){
+    z.x+=z.vx;z.y+=z.vy;z.vy+=z.g;z.t-=z.d;
+    c.globalAlpha=Math.max(z.t,0);c.fillStyle=z.r;
+    if(z.h){c.font=z.h+'px sans-serif';c.fillText('♥',z.x,z.y);}
+    else{c.beginPath();c.arc(z.x,z.y,2.6,0,6.283);c.fill();}
+  }
+  requestAnimationFrame(chiz);
+}
+chiz();
+ha.addEventListener('click',()=>{
+  document.body.classList.add('yes');
+  let k=0;
+  const uch=()=>salyut(fx.width*(.15+Math.random()*.7),fx.height*(.08+Math.random()*.4));
+  uch();uch();uch();
+  const t=setInterval(()=>{uch();if(++k>14) clearInterval(t);},450);
+  setInterval(()=>{if(!document.hidden) yurak();},220);
+});
+addEventListener('pointerdown',e=>{if(document.body.classList.contains('yes')) salyut(e.clientX,e.clientY);});
+</script>
